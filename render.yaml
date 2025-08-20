@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: fixed-random-64
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn -k uvicorn.workers.UvicornWorker app:app
+    healthCheckPath: /healthz
+    envVars:
+      - key: CIPHERTEXT
+        value: eeRa0KeingaJo4ohPhe0aek5weixeesh3aeL1ohnee9Lei7kaephiesa5euGh0oy
